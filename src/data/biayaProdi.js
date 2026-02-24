@@ -1,0 +1,1598 @@
+const rawDataBiayaProdi = [
+  // Fakultas Hukum
+  {
+    fakultas: "Fakultas Hukum",
+    prodi: "Ilmu Hukum",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 9_100_000,
+        cicilan2: 7_750_000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 750_000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4_250_000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 2_750_000 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 750_000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4_250_000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 2_750_000 },
+        ],
+      },
+      {
+        semester: 2,
+        cicilan1: 7_750_000,
+        cicilan2: 7_750_000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 750_000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4_250_000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 2_750_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 750_000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4_250_000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 2_750_000 },
+        ],
+      },
+      ...[3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 5_000_000,
+        cicilan2: 5_000_000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 750_000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4_250_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 750_000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4_250_000 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 4_250_000,
+        cicilan2: 4_250_000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4_250_000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4_250_000 }],
+      })),
+    ],
+  },
+
+  // Fakultas Ilmu Sosial dan Ilmu Politik
+  {
+    fakultas: "Fakultas Ilmu Sosial dan Ilmu Politik",
+    prodi: "Ilmu Administrasi Publik",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 6950000,
+        cicilan2: 5600000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 725000 },
+          { komponen: "PKKMB", nominal: 1350000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 725000 },
+        ],
+      },
+      ...[2, 3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 5600000,
+        cicilan2: 5600000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 725000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 725000 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 4000000,
+        cicilan2: 4000000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 }],
+      })),
+    ],
+  },
+
+  {
+    fakultas: "Fakultas Ilmu Sosial dan Ilmu Politik",
+    prodi: "Ilmu Kesejahteraan Sosial",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 6391000,
+        cicilan2: 5041000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 666000 },
+          { komponen: "PKKMB", nominal: 1350000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 666000 },
+        ],
+      },
+      ...[2, 3].map((k) => ({
+        semester: k,
+        cicilan1: 5041000,
+        cicilan2: 5041000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 666000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 666000 },
+        ],
+      })),
+      {
+        semester: 4,
+        cicilan1: 5041000,
+        cicilan2: 5048000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 666000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 673000 },
+        ],
+      },
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 3500000,
+        cicilan2: 3500000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 }],
+      })),
+    ],
+  },
+
+  {
+    fakultas: "Fakultas Ilmu Sosial dan Ilmu Politik",
+    prodi: "Ilmu Hubungan Internasional",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 6838000,
+        cicilan2: 5488000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 613000 },
+          { komponen: "PKKMB", nominal: 1350000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 613000 },
+        ],
+      },
+      ...[2, 3].map((k) => ({
+        semester: k,
+        cicilan1: 5488000,
+        cicilan2: 5488000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 613000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 613000 },
+        ],
+      })),
+      {
+        semester: 4,
+        cicilan1: 5488000,
+        cicilan2: 5488000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 613000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 613000 },
+        ],
+      },
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 4000000,
+        cicilan2: 4000000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 }],
+      })),
+    ],
+  },
+
+  {
+    fakultas: "Fakultas Ilmu Sosial dan Ilmu Politik",
+    prodi: "Ilmu Administrasi Bisnis",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 6376000,
+        cicilan2: 5026000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 651000 },
+          { komponen: "PKKMB", nominal: 1350000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 651000 },
+        ],
+      },
+      ...[2, 3].map((k) => ({
+        semester: k,
+        cicilan1: 5026000,
+        cicilan2: 5026000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 651000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 651000 },
+        ],
+      })),
+      {
+        semester: 4,
+        cicilan1: 5026000,
+        cicilan2: 5028000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 651000 },
+          { komponen: "PKKMB", nominal: 1350000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 653000 },
+        ],
+      },
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 3500000,
+        cicilan2: 3500000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 }],
+      })),
+    ],
+  },
+
+  {
+    fakultas: "Fakultas Ilmu Sosial dan Ilmu Politik",
+    prodi: "Ilmu Komunikasi",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 7218000,
+        cicilan2: 5868000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 993000 },
+          { komponen: "PKKMB", nominal: 1350000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 993000 },
+        ],
+      },
+      ...[2, 3].map((k) => ({
+        semester: k,
+        cicilan1: 5868000,
+        cicilan2: 5868000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 993000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 993000 },
+        ],
+      })),
+      {
+        semester: 4,
+        cicilan1: 5868000,
+        cicilan2: 5874000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 993000 },
+          { komponen: "PKKMB", nominal: 1350000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 999000 },
+        ],
+      },
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 4000000,
+        cicilan2: 4000000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 }],
+      })),
+    ],
+  },
+
+  // Fakultas Teknik
+  {
+    fakultas: "Fakultas Teknik",
+    prodi: "Teknik Industri",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 7_681_250,
+        cicilan2: 6_331_250,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4_875_000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 518_750 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4_875_000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 518_750 },
+        ],
+      },
+      ...[2, 3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 6_331_250,
+        cicilan2: 6_331_250,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4_875_000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 518_750 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4_875_000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 518_750 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 4_875_000,
+        cicilan2: 4_875_000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4_875_000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4_875_000 }],
+      })),
+    ],
+  },
+
+  {
+    fakultas: "Fakultas Teknik",
+    prodi: "Teknologi Pangan",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 8056250,
+        cicilan2: 6706250,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 5125000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 643750 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 5125000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 643750 },
+        ],
+      },
+      ...[2, 3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 6706250,
+        cicilan2: 6706250,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 5125000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 643750 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 5125000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 643750 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 5125000,
+        cicilan2: 5125000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 5125000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 5125000 }],
+      })),
+    ],
+  },
+
+  {
+    fakultas: "Fakultas Teknik",
+    prodi: "Teknik Mesin",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 7915625,
+        cicilan2: 6565625,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4_875_000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 753125 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4_875_000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 753125 },
+        ],
+      },
+      ...[2, 3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 6565625,
+        cicilan2: 6565625,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4_875_000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 753125 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4_875_000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 753125 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 4_875_000,
+        cicilan2: 4_875_000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4_875_000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4_875_000 }],
+      })),
+    ],
+  },
+
+  {
+    fakultas: "Fakultas Teknik",
+    prodi: "Teknik Informatika",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 7700000,
+        cicilan2: 6350000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4625000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 787500 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4625000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 787500 },
+        ],
+      },
+      ...[2, 3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 6350000,
+        cicilan2: 6350000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4625000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 787500 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4625000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 787500 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 4625000,
+        cicilan2: 4625000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4625000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4625000 }],
+      })),
+    ],
+  },
+
+  {
+    fakultas: "Fakultas Teknik",
+    prodi: "Teknik Lingkungan",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 7481250,
+        cicilan2: 6131250,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4625000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 568750 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4625000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 568750 },
+        ],
+      },
+      ...[2, 3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 6131250,
+        cicilan2: 6131250,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4625000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 568750 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4625000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 568750 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 4625000,
+        cicilan2: 4625000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4625000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4625000 }],
+      })),
+    ],
+  },
+
+  {
+    fakultas: "Fakultas Teknik",
+    prodi: "Perencanaan Wilayah dan Kota",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 7593750,
+        cicilan2: 6243750,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4625000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 681250 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4625000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 681250 },
+        ],
+      },
+      ...[2, 3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 6243750,
+        cicilan2: 6243750,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4625000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 681250 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 937_500 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4625000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 681250 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 4625000,
+        cicilan2: 4625000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4625000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4625000 }],
+      })),
+    ],
+  },
+
+  // Fakultas Ekonomi dan Bisnis
+  {
+    fakultas: "Fakultas Ekonomi dan Bisnis",
+    prodi: "Manajemen",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 7537500,
+        cicilan2: 6187500,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1000000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4687500 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 500000 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1000000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4687500 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 500000 },
+        ],
+      },
+      ...[2, 3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 6187500,
+        cicilan2: 6187500,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1000000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4687500 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 500000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1000000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4687500 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 500000 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 4687500,
+        cicilan2: 4687500,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4687500 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4687500 }],
+      })),
+    ],
+  },
+
+  {
+    fakultas: "Fakultas Ekonomi dan Bisnis",
+    prodi: "Akuntansi",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 7537500,
+        cicilan2: 6187500,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1000000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4687500 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 500000 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1000000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4687500 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 500000 },
+        ],
+      },
+      ...[2, 3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 6187500,
+        cicilan2: 6187500,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1000000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4687500 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 500000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1000000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4687500 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 500000 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 4687500,
+        cicilan2: 4687500,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4687500 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4687500 }],
+      })),
+    ],
+  },
+
+  {
+    fakultas: "Fakultas Ekonomi dan Bisnis",
+    prodi: "Ekonomi Pembangunan",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 7537500,
+        cicilan2: 6187500,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1000000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4687500 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 500000 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1000000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4687500 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 500000 },
+        ],
+      },
+      ...[2, 3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 6187500,
+        cicilan2: 6187500,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1000000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4687500 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 500000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1000000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4687500 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 500000 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 4687500,
+        cicilan2: 4687500,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4687500 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4687500 }],
+      })),
+    ],
+  },
+
+  {
+    fakultas: "Fakultas Ekonomi dan Bisnis",
+    prodi: "Bisnis Digital",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 5150000,
+        cicilan2: 3800000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 800000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 2500000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 500000 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 800000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 2500000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 500000 },
+        ],
+      },
+      ...[2, 3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 3800000,
+        cicilan2: 3800000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 800000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 2500000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 500000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 800000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 2500000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 500000 },
+        ],
+      })),
+      {
+        semester: 5,
+        cicilan1: 3300000,
+        cicilan2: 3300000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 800000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 2500000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 800000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 2500000 },
+        ],
+      },
+      ...[6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 2500000,
+        cicilan2: 2500000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 2500000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 2500000 }],
+      })),
+    ],
+  },
+
+  // Fakultas Keguruan dan Ilmu Pendidikan
+  {
+    fakultas: "Fakultas Keguruan dan Ilmu Pendidikan",
+    prodi: "Pendidikan Pancasila dan Kewarganegaraan",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 3824500,
+        cicilan2: 2469000,
+        cicilan3: 2469500,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 668000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1793000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 13500 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 12000 },
+        ],
+        rincianC3: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 12500 },
+        ],
+      },
+      ...[2, 3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 2474500,
+        cicilan2: 2469000,
+        cicilan3: 2469500,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 668000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1793000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 13500 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 12000 },
+        ],
+        rincianC3: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 12500 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 1793000,
+        cicilan2: 1791000,
+        cicilan3: 1791000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1793000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 }],
+        rincianC3: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 }],
+      })),
+    ],
+  },
+
+  {
+    fakultas: "Fakultas Keguruan dan Ilmu Pendidikan",
+    prodi: "Pendidikan Ekonomi",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 3881750,
+        cicilan2: 2526000,
+        cicilan3: 2526000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 668000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1793000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 70750 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 69000 },
+        ],
+        rincianC3: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 69000 },
+        ],
+      },
+      ...[2, 3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 2531750,
+        cicilan2: 2526000,
+        cicilan3: 2526000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 668000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1793000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 70750 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 69000 },
+        ],
+        rincianC3: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 69000 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 1793000,
+        cicilan2: 1791000,
+        cicilan3: 1791000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1793000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 }],
+        rincianC3: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 }],
+      })),
+    ],
+  },
+
+  {
+    fakultas: "Fakultas Keguruan dan Ilmu Pendidikan",
+    prodi: "Pendidikan Bahasa dan Sastra Indonesia",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 3861000,
+        cicilan2: 2507000,
+        cicilan3: 2507000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 668000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1793000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 50000 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 50000 },
+        ],
+        rincianC3: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 50000 },
+        ],
+      },
+      ...[2, 3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 2511000,
+        cicilan2: 2507000,
+        cicilan3: 2507000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 668000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1793000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 50000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 50000 },
+        ],
+        rincianC3: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 50000 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 1793000,
+        cicilan2: 1791000,
+        cicilan3: 1791000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1793000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 }],
+        rincianC3: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 }],
+      })),
+    ],
+  },
+
+  {
+    fakultas: "Fakultas Keguruan dan Ilmu Pendidikan",
+    prodi: "Pendidikan Biologi",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 3983500,
+        cicilan2: 2627000,
+        cicilan3: 2627000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 668000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1793000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 172500 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 170000 },
+        ],
+        rincianC3: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 170000 },
+        ],
+      },
+      ...[2, 3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 2633500,
+        cicilan2: 2627000,
+        cicilan3: 2627000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 668000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1793000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 172500 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 170000 },
+        ],
+        rincianC3: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 170000 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 1793000,
+        cicilan2: 1791000,
+        cicilan3: 1791000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1793000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 }],
+        rincianC3: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 }],
+      })),
+    ],
+  },
+
+  {
+    fakultas: "Fakultas Keguruan dan Ilmu Pendidikan",
+    prodi: "Pendidikan Matematika",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 3840500,
+        cicilan2: 2486500,
+        cicilan3: 2486500,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 668000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1793000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 29500 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 29500 },
+        ],
+        rincianC3: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 29500 },
+        ],
+      },
+      ...[2, 3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 2490500,
+        cicilan2: 2486500,
+        cicilan3: 2486500,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 668000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1793000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 29500 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 29500 },
+        ],
+        rincianC3: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 29500 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 1793000,
+        cicilan2: 1791000,
+        cicilan3: 1791000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1793000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 }],
+        rincianC3: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 }],
+      })),
+    ],
+  },
+
+  {
+    fakultas: "Fakultas Keguruan dan Ilmu Pendidikan",
+    prodi: "Pendidikan Guru Sekolah Dasar",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 3817250,
+        cicilan2: 2462000,
+        cicilan3: 2462000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 668000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1793000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 6250 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 5000 },
+        ],
+        rincianC3: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 5000 },
+        ],
+      },
+      ...[2, 3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 2467250,
+        cicilan2: 2462000,
+        cicilan3: 2462000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 668000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1793000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 6250 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 5000 },
+        ],
+        rincianC3: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 5000 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 1793000,
+        cicilan2: 1791000,
+        cicilan3: 1791000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1793000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 }],
+        rincianC3: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 }],
+      })),
+    ],
+  },
+
+  // Fakultas Ilmu Seni dan Sastra
+  {
+    fakultas: "Fakultas Ilmu Seni dan Sastra",
+    prodi: "Desain Komunikasi Visual",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 8525000,
+        cicilan2: 7175000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 1550000 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 1550000 },
+        ],
+      },
+      {
+        semester: 2,
+        cicilan1: 7175000,
+        cicilan2: 7175000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 1550000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 1550000 },
+        ],
+      },
+      ...[3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 4000000,
+        cicilan2: 4000000,
+        rincianC1: [
+          // { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+        ],
+        rincianC2: [
+          // { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 4000000,
+        cicilan2: 4000000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 }],
+      })),
+    ],
+  },
+
+  {
+    fakultas: "Fakultas Ilmu Seni dan Sastra",
+    prodi: "Fotografi",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 8400000,
+        cicilan2: 7050000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3875000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 1550000 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3875000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 1550000 },
+        ],
+      },
+      {
+        semester: 2,
+        cicilan1: 7050000,
+        cicilan2: 7050000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3875000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 1550000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3875000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 1550000 },
+        ],
+      },
+      ...[3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 3875000,
+        cicilan2: 3875000,
+        rincianC1: [
+          // { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3875000 },
+        ],
+        rincianC2: [
+          // { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3875000 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 3875000,
+        cicilan2: 3875000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3875000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3875000 }],
+      })),
+    ],
+  },
+
+  {
+    fakultas: "Fakultas Ilmu Seni dan Sastra",
+    prodi: "Seni Musik",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 7975000,
+        cicilan2: 6625000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3450000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 1550000 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3450000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 1550000 },
+        ],
+      },
+      {
+        semester: 2,
+        cicilan1: 6625000,
+        cicilan2: 6625000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3450000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 1550000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3450000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 1550000 },
+        ],
+      },
+      ...[3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 3450000,
+        cicilan2: 3450000,
+        rincianC1: [
+          // { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3450000 },
+        ],
+        rincianC2: [
+          // { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3450000 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 3450000,
+        cicilan2: 3450000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3450000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3450000 }],
+      })),
+    ],
+  },
+
+  {
+    fakultas: "Fakultas Ilmu Seni dan Sastra",
+    prodi: "Sastra Inggris",
+    catatan: "",
+    semesters: [
+      {
+        semester: 1,
+        cicilan1: 7975000,
+        cicilan2: 6625000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 1500000 },
+          { komponen: "PKKMB", nominal: 1_350_000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 1500000 },
+        ],
+      },
+      {
+        semester: 2,
+        cicilan1: 6625000,
+        cicilan2: 6625000,
+        rincianC1: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 1500000 },
+        ],
+        rincianC2: [
+          { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 1500000 },
+        ],
+      },
+      ...[3, 4].map((k) => ({
+        semester: k,
+        cicilan1: 3500000,
+        cicilan2: 3500000,
+        rincianC1: [
+          // { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
+        ],
+        rincianC2: [
+          // { komponen: "DP (Dana Pembangunan)", nominal: 1625000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
+        ],
+      })),
+      ...[5, 6, 7, 8].map((k) => ({
+        semester: k,
+        cicilan1: 3500000,
+        cicilan2: 3500000,
+        rincianC1: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 }],
+        rincianC2: [{ komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 }],
+      })),
+    ],
+  },
+
+  // Fakultas Kedokteran
+  {
+    fakultas: "Fakultas Kedokteran",
+    prodi: "Kedokteran",
+    isKedokteran: true,
+    gelombang: {
+      1: {
+        label: "Gelombang 1",
+        semesters: [
+          {
+            semester: 1,
+            cicilan1: 165_150_000,
+            cicilan2: 113_800_000,
+            rincianC1: [
+              { komponen: "DP (50%)", nominal: 100_000_000 },
+              { komponen: "Infak Wajib (50%)", nominal: 50_000_000 },
+              { komponen: "DPP Semester 1 (50%)", nominal: 13_800_000 },
+              { komponen: "PKKMB", nominal: 1_350_000 },
+            ],
+            rincianC2: [
+              { komponen: "DP (25%)", nominal: 50_000_000 },
+              { komponen: "Infak Wajib (50%)", nominal: 50_000_000 },
+              { komponen: "Infak Kelipatan (50%)", nominal: "" },
+              { komponen: "DPP Semester 1 (50%)", nominal: 13_800_000 },
+            ],
+          },
+          {
+            semester: 2,
+            cicilan1: 77_600_000,
+            cicilan2: "",
+            rincianC1: [
+              { komponen: "DP (25%)", nominal: 50_000_000 },
+              { komponen: "Infak Kelipatan (50%)", nominal: "" },
+              { komponen: "DPP Semester 2 (100%)", nominal: 27_600_000 },
+            ],
+            rincianC2: [],
+          },
+          ...[3, 4, 5, 6, 7, 8].map((k) => ({
+            semester: k,
+            cicilan1: 27_600_000,
+            cicilan2: "",
+            rincianC1: [{ komponen: "DPP", nominal: 27_600_000 }],
+            rincianC2: [],
+          })),
+        ],
+      },
+      2: {
+        label: "Gelombang 2",
+        semesters: [
+          {
+            semester: 1,
+            cicilan1: 177_650_000,
+            cicilan2: 126_300_000,
+            rincianC1: [
+              { komponen: "DP (50%)", nominal: 100_000_000 },
+              { komponen: "Infak Wajib (50%)", nominal: 62_500_000 },
+              { komponen: "DPP Semester 1 (50%)", nominal: 13_800_000 },
+              { komponen: "PKKMB", nominal: 1_350_000 },
+            ],
+            rincianC2: [
+              { komponen: "DP (25%)", nominal: 50_000_000 },
+              { komponen: "Infak Wajib (50%)", nominal: 62_500_000 },
+              { komponen: "Infak Kelipatan (50%)", nominal: "" },
+              { komponen: "DPP Semester 1 (50%)", nominal: 13_800_000 },
+            ],
+          },
+          {
+            semester: 2,
+            cicilan1: 77_600_000,
+            cicilan2: "",
+            rincianC1: [
+              { komponen: "DP (25%)", nominal: 50_000_000 },
+              { komponen: "Infak Kelipatan (50%)", nominal: "" },
+              { komponen: "DPP Semester 2 (100%)", nominal: 27_600_000 },
+            ],
+            rincianC2: [],
+          },
+          ...[3, 4, 5, 6, 7, 8].map((k) => ({
+            semester: k,
+            cicilan1: 27_600_000,
+            cicilan2: "",
+            rincianC1: [{ komponen: "DPP", nominal: 27_600_000 }],
+            rincianC2: [],
+          })),
+        ],
+      },
+      3: {
+        label: "Gelombang 3",
+        semesters: [
+          {
+            semester: 1,
+            cicilan1: 190_150_000,
+            cicilan2: 138_800_000,
+            rincianC1: [
+              { komponen: "DP (50%)", nominal: 100_000_000 },
+              { komponen: "Infak Wajib (50%)", nominal: 75_000_000 },
+              { komponen: "DPP Semester 1 (50%)", nominal: 13_800_000 },
+              { komponen: "PKKMB", nominal: 1_350_000 },
+            ],
+            rincianC2: [
+              { komponen: "DP (25%)", nominal: 50_000_000 },
+              { komponen: "Infak Wajib (50%)", nominal: 75_000_000 },
+              { komponen: "Infak Kelipatan (50%)", nominal: "" },
+              { komponen: "DPP Semester 1 (50%)", nominal: 13_800_000 },
+            ],
+          },
+          {
+            semester: 2,
+            cicilan1: 77_600_000,
+            cicilan2: "",
+            rincianC1: [
+              { komponen: "DP (25%)", nominal: 50_000_000 },
+              { komponen: "Infak Kelipatan (50%)", nominal: "" },
+              { komponen: "DPP Semester 2 (100%)", nominal: 27_600_000 },
+            ],
+            rincianC2: [],
+          },
+          ...[3, 4, 5, 6, 7, 8].map((k) => ({
+            semester: k,
+            cicilan1: 27_600_000,
+            cicilan2: "",
+            rincianC1: [{ komponen: "DPP", nominal: 27_600_000 }],
+            rincianC2: [],
+          })),
+        ],
+      },
+      4: {
+        label: "Gelombang 4",
+        semesters: [
+          {
+            semester: 1,
+            cicilan1: 202_650_000,
+            cicilan2: 151_300_000,
+            rincianC1: [
+              { komponen: "DP (50%)", nominal: 100_000_000 },
+              { komponen: "Infak Wajib (50%)", nominal: 87_500_000 },
+              { komponen: "DPP Semester 1 (50%)", nominal: 13_800_000 },
+              { komponen: "PKKMB", nominal: 1_350_000 },
+            ],
+            rincianC2: [
+              { komponen: "DP (25%)", nominal: 50_000_000 },
+              { komponen: "Infak Wajib (50%)", nominal: 87_500_000 },
+              { komponen: "Infak Kelipatan (50%)", nominal: "" },
+              { komponen: "DPP Semester 1 (50%)", nominal: 13_800_000 },
+            ],
+          },
+          {
+            semester: 2,
+            cicilan1: 77_600_000,
+            cicilan2: "",
+            rincianC1: [
+              { komponen: "DP (25%)", nominal: 50_000_000 },
+              { komponen: "Infak Kelipatan (50%)", nominal: "" },
+              { komponen: "DPP Semester 2 (100%)", nominal: 27_600_000 },
+            ],
+            rincianC2: [],
+          },
+          ...[3, 4, 5, 6, 7, 8].map((k) => ({
+            semester: k,
+            cicilan1: 27_600_000,
+            cicilan2: "",
+            rincianC1: [{ komponen: "DPP", nominal: 27_600_000 }],
+            rincianC2: [],
+          })),
+        ],
+      },
+    },
+  },
+];
+
+export default rawDataBiayaProdi;
