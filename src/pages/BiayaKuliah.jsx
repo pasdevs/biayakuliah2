@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import rawDataBiayaProdi from "../data/biayaProdi";
 
 /* ─────────────────────────────────────────
@@ -18,12 +18,7 @@ const CSS = `
 
   .bk-body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--slate-50);color:var(--slate-800);min-height:100vh}
 
-  .top-bar{background:#fff;border-bottom:1px solid var(--slate-200);padding:14px 20px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100}
-  .logo-c{width:38px;height:38px;background:var(--gold-400);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--slate-800);flex-shrink:0}
-  .top-bar h2{font-size:14px;font-weight:700;color:var(--slate-900);margin:0;padding:0}
-  .top-bar p{font-size:11px;color:var(--slate-400);font-weight:500;margin:0;padding:0}
-
-  .container{max-width:680px;margin:0 auto;padding:20px 16px 80px}
+.container{max-width:680px;margin:0 auto;padding:20px 16px 80px}
 
   .sel-label{font-size:11px;font-weight:700;color:var(--slate-400);text-transform:uppercase;letter-spacing:.7px;margin-bottom:6px}
   .sel-wrap{position:relative;margin-bottom:16px}
@@ -125,6 +120,7 @@ const CSS = `
     .step-l{font-size:9.5px}
     .step-s{font-size:8.5px}
   }
+
 `;
 
 /* ─────────────────────────────────────────
@@ -600,6 +596,41 @@ export default function BiayaKuliah() {
   const [currentGelombang, setCurrentGelombang] = useState(1);
   const [animKey, setAnimKey] = useState(0);
 
+  const [activeSection, setActiveSection] = useState("");
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // Urgency bar countdown — Pasca-SNBP deadline
+  const URGENCY_DEADLINE = "2026-04-30T23:59:59+07:00";
+  const URGENCY_KUOTA_TERISI = 0;
+  const URGENCY_KUOTA_TOTAL = 100;
+
+  const calculateUrgencyTimeLeft = () => {
+    const target = new Date(URGENCY_DEADLINE).getTime();
+    const now = Date.now();
+    const diff = target - now;
+    if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    return {
+      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((diff / (1000 * 60)) % 60),
+      seconds: Math.floor((diff / 1000) % 60),
+    };
+  };
+
+  const [urgencyTimeLeft, setUrgencyTimeLeft] = useState(calculateUrgencyTimeLeft());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setUrgencyTimeLeft(calculateUrgencyTimeLeft());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   const p = rawDataBiayaProdi[selectedProdiIdx] || rawDataBiayaProdi[0];
   const isFKIP = p.fakultas === "Fakultas Keguruan dan Ilmu Pendidikan";
   const cicilanCount = isFKIP ? 3 : 2;
@@ -635,16 +666,212 @@ export default function BiayaKuliah() {
     <div className="bk-body">
       <style>{CSS}</style>
 
-      {/* TOP BAR */}
-      <div className="top-bar">
-        <img
-          src="/biaya/rincian-lengkap-v2//logo_unpas.png"
-          alt="Logo Universitas Pasundan"
-          style={{ width: "38px", height: "38px", objectFit: "contain", flexShrink: 0 }}
-        />
-        <div>
-          <h2>Rincian Biaya Pendidikan (S1)</h2>
-          <p>Universitas Pasundan · TA 2025/2026</p>
+      {/* HEADER WRAPPER — sticky */}
+      <div id="sticky-header" className="sticky top-0 z-50 bg-white/80 backdrop-blur-md">
+        {/* NAVBAR */}
+        <header className="py-4">
+          <div className="mx-auto max-w-6xl px-4 flex items-center justify-between">
+
+            {/* LEFT: LOGO */}
+            <a href="/" className="flex items-center gap-3">
+              <div className="h-10 w-10 rounded-full bg-slate-300">
+                <img
+                  src="/biaya/rincian-lengkap-v2//logo_unpas.png"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Logo Unpas"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-sm font-semibold tracking-wide">
+                  Universitas Pasundan
+                </span>
+                <span className="text-xs text-slate-500">
+                  Penerimaan Mahasiswa Baru
+                </span>
+              </div>
+            </a>
+
+            {/* CENTER: MENU */}
+            <div className="hidden md:flex items-center gap-6 text-sm">
+              {/* <button onClick={() => scrollToSection("jalur-pendaftaran")} className="text-slate-600 hover:text-[#5a4c43] cursor-pointer">
+                Jalur Pendaftaran
+              </button> */}
+              {/* <button onClick={() => scrollToSection("timeline-alur")} className="text-slate-600 hover:text-[#5a4c43] cursor-pointer">
+                Panduan Pendaftaran
+              </button> */}
+              {/* <button onClick={() => scrollToSection("program-studi")} className="text-slate-600 hover:text-[#5a4c43] cursor-pointer">
+                Program Studi
+              </button> */}
+              <a
+                href="https://pmb.unpas.ac.id/#jalur-pendaftaran"
+                // target="_blank"
+                // rel="noopener noreferrer"
+                className="text-slate-600 hover:text-[#5a4c43]"
+              >
+                Jalur Pendaftaran
+              </a>
+              <a
+                href="https://pmb.unpas.ac.id/#timeline-alur"
+                // target="_blank"
+                // rel="noopener noreferrer"
+                className="text-slate-600 hover:text-[#5a4c43]"
+              >
+                Panduan Pendaftaran
+              </a>
+              <a
+                href="https://pmb.unpas.ac.id/#program-studi"
+                // target="_blank"
+                // rel="noopener noreferrer"
+                className="text-slate-600 hover:text-[#5a4c43]"
+              >
+                Program Studi
+              </a>
+              {/* <button onClick={() => setActiveSection("biaya-pendidikan")}
+                className="text-slate-600 hover:text-[#5a4c43] cursor-pointer"
+              >
+                Biaya Pendidikan
+              </button> */}
+              <button onClick={() => setActiveSection("biaya-kuliah")}
+                className={`relative cursor-pointer transition-colors duration-200
+                    ${activeSection === "biaya-kuliah"
+                    ? "text-[#6B5B51] font-semibold after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-[#6B5B51] after:rounded-full"
+                    : "text-slate-600 hover:text-[#5a4c43]"
+                  }`}
+              >
+                Biaya Pendidikan
+              </button>
+            </div>
+
+            {/* RIGHT: CTA + HAMBURGER */}
+            <div className="flex items-center gap-3">
+              {/* Hamburger */}
+              <button
+                className="md:hidden text-slate-700"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+              </button>
+
+              {/* CTA BUTTONS */}
+              <div className="hidden md:flex items-center gap-3">
+                <a
+                  href="https://situ2.unpas.ac.id/spmbfront/jalur-seleksi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex rounded-full border border-[#6B5B51] px-4 py-2 text-sm font-semibold text-[#6B5B51] hover:bg-[#f3efec] transition"
+                >
+                  Daftar PMB
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </header>
+
+        {/* MOBILE MENU DROPDOWN */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-white shadow-lg py-3 px-4 flex flex-col gap-3 text-sm">
+            {/* <button onClick={() => { scrollToSection("jalur-pendaftaran"); setIsMenuOpen(false); }}>Jalur Pendaftaran</button> */}
+            {/* <button onClick={() => { scrollToSection("timeline-alur"); setIsMenuOpen(false); }}>Panduan Pendaftaran</button> */}
+            {/* <button onClick={() => { scrollToSection("program-studi"); setIsMenuOpen(false); }}>Program Studi</button> */}
+            <a
+              href="https://pmb.unpas.ac.id/#jalur-pendaftaran"
+              // target="_blank"
+              // rel="noopener noreferrer"
+              onClick={() => setIsMenuOpen(false)}
+              className="w-full text-center py-2 rounded-lg hover:bg-[#f3efec] transition"
+            >
+              Jalur Pendaftaran
+            </a>
+            <a
+              href="https://pmb.unpas.ac.id/#timeline-alur"
+              // target="_blank"
+              // rel="noopener noreferrer"
+              onClick={() => setIsMenuOpen(false)}
+              className="w-full text-center py-2 rounded-lg hover:bg-[#f3efec] transition"
+            >
+              Panduan Pendaftaran
+            </a>
+            <a
+              href="https://pmb.unpas.ac.id/#program-studi"
+              // target="_blank"
+              // rel="noopener noreferrer"
+              onClick={() => setIsMenuOpen(false)}
+              className="w-full text-center py-2 rounded-lg hover:bg-[#f3efec] transition"
+            >
+              Program Studi
+            </a>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="w-full text-center py-2 rounded-lg hover:bg-[#f3efec] transition cursor-pointer"
+            >
+              Biaya Pendidikan
+            </button>
+            <a
+              href="https://situ2.unpas.ac.id/spmbfront/jalur-seleksi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 rounded-full border border-[#6B5B51] px-4 py-2 text-sm text-center font-semibold text-[#6B5B51] hover:bg-[#f3efec] transition"
+            >
+              Daftar PMB
+            </a>
+          </div>
+        )}
+
+        {/* URGENCY BAR — Pasca-SNBP */}
+        <div className="bg-[#3F3631] overflow-hidden">
+          {/* Row 1: label + countdown */}
+          <div className="mx-auto max-w-6xl px-4 py-1.5 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2 flex-1 min-w-0">
+              <span className="relative flex-shrink-0 flex items-center justify-center w-3 h-3">
+                <span className="animate-ping absolute inline-flex h-2.5 w-2.5 rounded-full bg-yellow-400 opacity-60" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-yellow-400" />
+              </span>
+              <span className="text-[11px] font-bold text-slate-300 truncate">
+                <span className="text-yellow-300">Pasca-SNBP</span>
+                {" — "}Potongan DP{" "}
+                <span className="text-emerald-300 font-extrabold">Rp 1,5 Juta</span>
+                <span className="text-slate-400 hidden sm:inline"> · Berakhir dalam:</span>
+              </span>
+            </div>
+            <div className="flex items-center gap-1 flex-shrink-0">
+              <div className="bg-[#5a4c43] border border-yellow-400/20 rounded px-1.5 py-0.5 text-center min-w-[30px]">
+                <div className="text-yellow-300 font-extrabold text-[11px] leading-tight">{String(urgencyTimeLeft.days).padStart(2, "0")}</div>
+                <div className="text-white text-[7px] font-bold uppercase tracking-wide">Hari</div>
+              </div>
+              <span className="text-white text-xs font-bold">:</span>
+              <div className="bg-[#5a4c43] border border-yellow-400/20 rounded px-1.5 py-0.5 text-center min-w-[30px]">
+                <div className="text-yellow-300 font-extrabold text-[11px] leading-tight">{String(urgencyTimeLeft.hours).padStart(2, "0")}</div>
+                <div className="text-white text-[7px] font-bold uppercase tracking-wide">Jam</div>
+              </div>
+              <span className="text-white text-xs font-bold">:</span>
+              <div className="bg-[#5a4c43] border border-yellow-400/20 rounded px-1.5 py-0.5 text-center min-w-[30px]">
+                <div className="text-yellow-300 font-extrabold text-[11px] leading-tight">{String(urgencyTimeLeft.minutes).padStart(2, "0")}</div>
+                <div className="text-white text-[7px] font-bold uppercase tracking-wide">Min</div>
+              </div>
+            </div>
+          </div>
+          {/* Row 2: quota bar */}
+          <div className="mx-auto max-w-6xl px-4 pb-1.5 flex items-center gap-2">
+            <span className="text-[9.5px] text-slate-400 font-semibold whitespace-nowrap">
+              Kuota: <span className="text-yellow-400">{URGENCY_KUOTA_TERISI} / {URGENCY_KUOTA_TOTAL}</span>
+            </span>
+            <div className="flex-1 h-[3px] bg-white/10 rounded-full overflow-hidden">
+              <div
+                className="h-full rounded-full bg-gradient-to-r from-teal-400 to-yellow-400 transition-all duration-700"
+                style={{ width: `${Math.round(URGENCY_KUOTA_TERISI / URGENCY_KUOTA_TOTAL * 100)}%` }}
+              />
+            </div>
+            <span className="text-[9.5px] font-extrabold text-yellow-400">
+              {Math.round(URGENCY_KUOTA_TERISI / URGENCY_KUOTA_TOTAL * 100)}%
+            </span>
+          </div>
         </div>
       </div>
 
