@@ -744,9 +744,19 @@ export default function BiayaKuliah() {
               </button>
             </div>
 
-            {/* RIGHT: CTA + HAMBURGER */}
+            {/* RIGHT: DAFTAR PMB + HAMBURGER */}
             <div className="flex items-center gap-3">
-              {/* Hamburger */}
+              {/* Daftar PMB — tampil di semua ukuran */}
+              <a
+                href="https://situ2.unpas.ac.id/spmbfront/jalur-seleksi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex rounded-full border border-[#6B5B51] px-2.5 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-semibold text-[#6B5B51] hover:bg-[#f3efec] transition whitespace-nowrap"
+              >
+                Daftar
+              </a>
+
+              {/* Hamburger — hanya di mobile, paling kanan */}
               <button
                 className="md:hidden text-slate-700"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -757,18 +767,6 @@ export default function BiayaKuliah() {
                     d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
               </button>
-
-              {/* CTA BUTTONS */}
-              <div className="hidden md:flex items-center gap-3">
-                <a
-                  href="https://situ2.unpas.ac.id/spmbfront/jalur-seleksi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex rounded-full border border-[#6B5B51] px-4 py-2 text-sm font-semibold text-[#6B5B51] hover:bg-[#f3efec] transition"
-                >
-                  Daftar PMB
-                </a>
-              </div>
             </div>
 
           </div>
@@ -813,14 +811,6 @@ export default function BiayaKuliah() {
             >
               Biaya Pendidikan
             </button>
-            <a
-              href="https://situ2.unpas.ac.id/spmbfront/jalur-seleksi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 rounded-full border border-[#6B5B51] px-4 py-2 text-sm text-center font-semibold text-[#6B5B51] hover:bg-[#f3efec] transition"
-            >
-              Daftar PMB
-            </a>
           </div>
         )}
 
