@@ -272,7 +272,7 @@ const rawDataBiayaProdi = [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
           { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 651000 },
-          { komponen: "PKKMB", nominal: 1350000 },
+          // { komponen: "PKKMB", nominal: 1350000 },
         ],
         rincianC2: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
@@ -334,7 +334,7 @@ const rawDataBiayaProdi = [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
           { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 993000 },
-          { komponen: "PKKMB", nominal: 1350000 },
+          // { komponen: "PKKMB", nominal: 1350000 },
         ],
         rincianC2: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
