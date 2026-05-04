@@ -604,12 +604,58 @@ export default function BiayaKuliah() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Urgency bar countdown — Pasca-SNBP deadline
-  const URGENCY_DEADLINE = "2026-04-30T23:59:59+07:00";
-  const URGENCY_KUOTA_TERISI = 97;
-  const URGENCY_KUOTA_TOTAL = 100;
+  // ── MOMENTUM CONFIG ───────────────────────────────────────────
+  const GELOMBANG_PMDK = [
+    {
+      gel: 1,
+      start: "2026-01-05",
+      end: "2026-06-04",
+      momentums: [
+        { label: "Pra-SNBP",    start: "2026-01-05", end: "2026-03-25", dp: 2000000, kuota: "200 kuota" },
+        { label: "Pasca-SNBP",  start: "2026-03-31", end: "2026-04-30", dp: 1500000, kuota: "100 kuota" },
+        { label: "Pasca-SNBT",  start: "2026-05-25", end: "2026-06-04", dp: 1000000, kuota: "100 kuota" },
+      ],
+    },
+  ];
+
+  // Update manual saat momentum aktif: berapa slot yang sudah terisi
+  const URGENCY_KUOTA_TERISI = 100;
+
+  const getMomentumState = () => {
+    const today = new Date();
+    const momentums = GELOMBANG_PMDK[0].momentums;
+    const active = momentums.find(m => {
+      const s = new Date(m.start + "T00:00:00+07:00");
+      const e = new Date(m.end + "T23:59:59+07:00");
+      return today >= s && today <= e;
+    });
+    if (active) return { mode: "active", momentum: active };
+    const upcoming = [...momentums]
+      .filter(m => new Date(m.start + "T00:00:00+07:00") > today)
+      .sort((a, b) => new Date(a.start) - new Date(b.start))[0];
+    if (upcoming) return { mode: "upcoming", momentum: upcoming };
+    return { mode: "ended", momentum: momentums[momentums.length - 1] };
+  };
+
+  const momentumState = getMomentumState();
+  const activeMomentum = momentumState.momentum;
+
+  const URGENCY_DEADLINE = momentumState.mode === "active"
+    ? `${activeMomentum.end}T23:59:59+07:00`
+    : momentumState.mode === "upcoming"
+    ? `${activeMomentum.start}T00:00:00+07:00`
+    : null;
+
+  const URGENCY_KUOTA_TOTAL = activeMomentum ? parseInt(activeMomentum.kuota) || 100 : 100;
+
+  const formatDPLabel = (dp) => {
+    if (!dp) return "—";
+    const juta = dp / 1000000;
+    return `Rp ${juta % 1 === 0 ? juta : juta.toFixed(1).replace(".", ",")} Juta`;
+  };
 
   const calculateUrgencyTimeLeft = () => {
+    if (!URGENCY_DEADLINE) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
     const target = new Date(URGENCY_DEADLINE).getTime();
     const now = Date.now();
     const diff = target - now;
@@ -814,55 +860,98 @@ export default function BiayaKuliah() {
           </div>
         )}
 
-        {/* URGENCY BAR — Pasca-SNBP */}
-        <div className="bg-[#3F3631] overflow-hidden">
-          {/* Row 1: label + countdown */}
-          <div className="mx-auto max-w-6xl px-4 py-1.5 flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2 flex-1 min-w-0">
-              <span className="relative flex-shrink-0 flex items-center justify-center w-3 h-3">
-                <span className="animate-ping absolute inline-flex h-2.5 w-2.5 rounded-full bg-yellow-400 opacity-60" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-yellow-400" />
-              </span>
-              <span className="text-[11px] font-bold text-slate-300 truncate">
-                <span className="text-yellow-300">Pasca-SNBP</span>
-                {" — "}Potongan DP{" "}
-                <span className="text-emerald-300 font-extrabold">Rp 1,5 Juta</span>
-                <span className="text-slate-400 hidden sm:inline"> · Berakhir dalam:</span>
-              </span>
-            </div>
-            <div className="flex items-center gap-1 flex-shrink-0">
-              <div className="bg-[#5a4c43] border border-yellow-400/20 rounded px-1.5 py-0.5 text-center min-w-[30px]">
-                <div className="text-yellow-300 font-extrabold text-[11px] leading-tight">{String(urgencyTimeLeft.days).padStart(2, "0")}</div>
-                <div className="text-white text-[7px] font-bold uppercase tracking-wide">Hari</div>
+        {/* URGENCY BAR — auto-switch berdasarkan momentumState */}
+        {momentumState.mode !== "ended" && (
+          <div className="bg-[#3F3631] overflow-hidden">
+            {momentumState.mode === "active" ? (
+              /* Mode AKTIF: label + countdown 1 baris, kuota bar di bawah */
+              <>
+                <div className="mx-auto max-w-6xl px-4 py-1.5 flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2 flex-1 min-w-0">
+                    <span className="relative flex-shrink-0 flex items-center justify-center w-3 h-3">
+                      <span className="animate-ping absolute inline-flex h-2.5 w-2.5 rounded-full bg-yellow-400 opacity-60" />
+                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-yellow-400" />
+                    </span>
+                    <span className="text-[11px] font-bold text-slate-300 truncate">
+                      <span className="text-yellow-300">{activeMomentum.label}</span>
+                      {" — "}Potongan DP{" "}
+                      <span className="text-emerald-300 font-extrabold">{formatDPLabel(activeMomentum.dp)}</span>
+                      <span className="text-slate-400 hidden sm:inline"> · Berakhir dalam:</span>
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1 flex-shrink-0">
+                    <div className="bg-[#5a4c43] border border-yellow-400/20 rounded px-1.5 py-0.5 text-center min-w-[30px]">
+                      <div className="text-yellow-300 font-extrabold text-[11px] leading-tight">{String(urgencyTimeLeft.days).padStart(2, "0")}</div>
+                      <div className="text-white text-[7px] font-bold uppercase tracking-wide">Hari</div>
+                    </div>
+                    <span className="text-white text-xs font-bold">:</span>
+                    <div className="bg-[#5a4c43] border border-yellow-400/20 rounded px-1.5 py-0.5 text-center min-w-[30px]">
+                      <div className="text-yellow-300 font-extrabold text-[11px] leading-tight">{String(urgencyTimeLeft.hours).padStart(2, "0")}</div>
+                      <div className="text-white text-[7px] font-bold uppercase tracking-wide">Jam</div>
+                    </div>
+                    <span className="text-white text-xs font-bold">:</span>
+                    <div className="bg-[#5a4c43] border border-yellow-400/20 rounded px-1.5 py-0.5 text-center min-w-[30px]">
+                      <div className="text-yellow-300 font-extrabold text-[11px] leading-tight">{String(urgencyTimeLeft.minutes).padStart(2, "0")}</div>
+                      <div className="text-white text-[7px] font-bold uppercase tracking-wide">Min</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="mx-auto max-w-6xl px-4 pb-1.5 flex items-center gap-2">
+                  <span className="text-[9.5px] text-slate-400 font-semibold whitespace-nowrap">
+                    Kuota: <span className="text-yellow-400">{URGENCY_KUOTA_TERISI} / {URGENCY_KUOTA_TOTAL}</span>
+                  </span>
+                  <div className="flex-1 h-[3px] bg-white/10 rounded-full overflow-hidden">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-teal-400 to-yellow-400 transition-all duration-700"
+                      style={{ width: `${Math.round(URGENCY_KUOTA_TERISI / URGENCY_KUOTA_TOTAL * 100)}%` }}
+                    />
+                  </div>
+                  <span className="text-[9.5px] font-extrabold text-yellow-400">
+                    {Math.round(URGENCY_KUOTA_TERISI / URGENCY_KUOTA_TOTAL * 100)}%
+                  </span>
+                </div>
+              </>
+            ) : (
+              /* Mode UPCOMING: info kiri, countdown kanan */
+              <div className="mx-auto max-w-6xl px-4 pt-1.5 pb-1.5 flex items-center justify-between gap-2">
+                <div className="flex items-start gap-2 min-w-0">
+                  <span className="relative flex-shrink-0 flex items-center justify-center w-3 h-3 mt-[2px]">
+                    <span className="animate-ping absolute inline-flex h-2.5 w-2.5 rounded-full bg-yellow-400 opacity-60" />
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-yellow-400" />
+                  </span>
+                  <div className="flex flex-col gap-0.5">
+                    <span className="text-[11px] font-bold text-yellow-300">{activeMomentum.label}</span>
+                    <span className="text-[10px] text-slate-300">
+                      Potongan DP <span className="text-emerald-300 font-extrabold">{formatDPLabel(activeMomentum.dp)}</span>
+                    </span>
+                    <span className="text-[9.5px] text-slate-400 font-semibold">
+                      Kuota Tersedia: <span className="text-yellow-400">{URGENCY_KUOTA_TOTAL}</span>
+                    </span>
+                  </div>
+                </div>
+                <div className="flex flex-col items-end gap-0.5 flex-shrink-0">
+                  <span className="text-[9px] text-slate-400 font-semibold">Dibuka dalam:</span>
+                  <div className="flex items-center gap-1">
+                    <div className="bg-[#5a4c43] border border-yellow-400/20 rounded px-1.5 py-0.5 text-center min-w-[30px]">
+                      <div className="text-yellow-300 font-extrabold text-[11px] leading-tight">{String(urgencyTimeLeft.days).padStart(2, "0")}</div>
+                      <div className="text-white text-[7px] font-bold uppercase tracking-wide">Hari</div>
+                    </div>
+                    <span className="text-white text-xs font-bold">:</span>
+                    <div className="bg-[#5a4c43] border border-yellow-400/20 rounded px-1.5 py-0.5 text-center min-w-[30px]">
+                      <div className="text-yellow-300 font-extrabold text-[11px] leading-tight">{String(urgencyTimeLeft.hours).padStart(2, "0")}</div>
+                      <div className="text-white text-[7px] font-bold uppercase tracking-wide">Jam</div>
+                    </div>
+                    <span className="text-white text-xs font-bold">:</span>
+                    <div className="bg-[#5a4c43] border border-yellow-400/20 rounded px-1.5 py-0.5 text-center min-w-[30px]">
+                      <div className="text-yellow-300 font-extrabold text-[11px] leading-tight">{String(urgencyTimeLeft.minutes).padStart(2, "0")}</div>
+                      <div className="text-white text-[7px] font-bold uppercase tracking-wide">Min</div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <span className="text-white text-xs font-bold">:</span>
-              <div className="bg-[#5a4c43] border border-yellow-400/20 rounded px-1.5 py-0.5 text-center min-w-[30px]">
-                <div className="text-yellow-300 font-extrabold text-[11px] leading-tight">{String(urgencyTimeLeft.hours).padStart(2, "0")}</div>
-                <div className="text-white text-[7px] font-bold uppercase tracking-wide">Jam</div>
-              </div>
-              <span className="text-white text-xs font-bold">:</span>
-              <div className="bg-[#5a4c43] border border-yellow-400/20 rounded px-1.5 py-0.5 text-center min-w-[30px]">
-                <div className="text-yellow-300 font-extrabold text-[11px] leading-tight">{String(urgencyTimeLeft.minutes).padStart(2, "0")}</div>
-                <div className="text-white text-[7px] font-bold uppercase tracking-wide">Min</div>
-              </div>
-            </div>
+            )}
           </div>
-          {/* Row 2: quota bar */}
-          <div className="mx-auto max-w-6xl px-4 pb-1.5 flex items-center gap-2">
-            <span className="text-[9.5px] text-slate-400 font-semibold whitespace-nowrap">
-              Kuota: <span className="text-yellow-400">{URGENCY_KUOTA_TERISI} / {URGENCY_KUOTA_TOTAL}</span>
-            </span>
-            <div className="flex-1 h-[3px] bg-white/10 rounded-full overflow-hidden">
-              <div
-                className="h-full rounded-full bg-gradient-to-r from-teal-400 to-yellow-400 transition-all duration-700"
-                style={{ width: `${Math.round(URGENCY_KUOTA_TERISI / URGENCY_KUOTA_TOTAL * 100)}%` }}
-              />
-            </div>
-            <span className="text-[9.5px] font-extrabold text-yellow-400">
-              {Math.round(URGENCY_KUOTA_TERISI / URGENCY_KUOTA_TOTAL * 100)}%
-            </span>
-          </div>
-        </div>
+        )}
       </div>
 
       {/* CONTAINER */}

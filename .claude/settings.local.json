@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"c:\\\\\\\\__BACKUP SSD LAPTOP\\\\\\\\APLIKASI\\\\\\\\_BIAYA_KULIAH2\\\\\\\\biayakuliah2\")",
+      "Bash(dir -la src)"
+    ]
+  }
+}
