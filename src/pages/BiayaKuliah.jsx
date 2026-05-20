@@ -677,6 +677,11 @@ export default function BiayaKuliah() {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    window.dataLayer?.push({ event: "page_biaya" });
+    window.fbq?.("trackCustom", "page_biaya");
+  }, []);
+
   const p = rawDataBiayaProdi[selectedProdiIdx] || rawDataBiayaProdi[0];
   const isFKIP = p.fakultas === "Fakultas Keguruan dan Ilmu Pendidikan";
   const cicilanCount = isFKIP ? 3 : 2;
@@ -692,6 +697,18 @@ export default function BiayaKuliah() {
     setCurrentSemester(1);
     setCurrentGelombang(1);
     triggerAnim();
+    const selected = rawDataBiayaProdi[idx];
+    if (selected) {
+      window.dataLayer?.push({
+        event: "view_biaya_prodi",
+        prodi: selected.prodi,
+        fakultas: selected.fakultas,
+      });
+      window.fbq?.("trackCustom", "ViewBiayaProdi", {
+        content_name: selected.prodi,
+        content_category: selected.fakultas,
+      });
+    }
   };
   const handleSemChange = (sem) => { setCurrentSemester(sem); triggerAnim(); };
   const handleGelChange = (gel) => { setCurrentGelombang(gel); setCurrentSemester(1); triggerAnim(); };
