@@ -619,7 +619,7 @@ export default function BiayaKuliah() {
   ];
 
   // Update manual saat momentum aktif: berapa slot yang sudah terisi
-  const URGENCY_KUOTA_TERISI = 0;
+  const URGENCY_KUOTA_TERISI = 27;
 
   const getMomentumState = () => {
     const today = new Date();
