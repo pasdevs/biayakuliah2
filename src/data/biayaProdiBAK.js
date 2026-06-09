@@ -118,13 +118,13 @@ const rawDataBiayaProdi = [
         rincianC1: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 666875 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 666000 },
           { komponen: "PKKMB", nominal: 1350000 },
         ],
         rincianC2: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 666875 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 666000 },
         ],
       },
       ...[2, 3].map((k) => ({
@@ -134,12 +134,12 @@ const rawDataBiayaProdi = [
         rincianC1: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 666875 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 666000 },
         ],
         rincianC2: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 666875 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 666000 },
         ],
       })),
       {
@@ -149,12 +149,12 @@ const rawDataBiayaProdi = [
         rincianC1: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 666875 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 666000 },
         ],
         rincianC2: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 666875 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 673000 },
         ],
       },
       ...[5, 6, 7, 8].map((k) => ({
@@ -179,13 +179,13 @@ const rawDataBiayaProdi = [
         rincianC1: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 613125 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 613000 },
           { komponen: "PKKMB", nominal: 1350000 },
         ],
         rincianC2: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 613125 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 613000 },
         ],
       },
       ...[2, 3].map((k) => ({
@@ -195,12 +195,12 @@ const rawDataBiayaProdi = [
         rincianC1: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 613125 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 613000 },
         ],
         rincianC2: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 613125 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 613000 },
         ],
       })),
       {
@@ -210,12 +210,12 @@ const rawDataBiayaProdi = [
         rincianC1: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 613125 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 613000 },
         ],
         rincianC2: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 613125 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 613000 },
         ],
       },
       ...[5, 6, 7, 8].map((k) => ({
@@ -240,13 +240,13 @@ const rawDataBiayaProdi = [
         rincianC1: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 651250 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 651000 },
           { komponen: "PKKMB", nominal: 1350000 },
         ],
         rincianC2: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 651250 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 651000 },
         ],
       },
       ...[2, 3].map((k) => ({
@@ -256,12 +256,12 @@ const rawDataBiayaProdi = [
         rincianC1: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 651250 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 651000 },
         ],
         rincianC2: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 651250 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 651000 },
         ],
       })),
       {
@@ -271,13 +271,13 @@ const rawDataBiayaProdi = [
         rincianC1: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 651250 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 651000 },
           // { komponen: "PKKMB", nominal: 1350000 },
         ],
         rincianC2: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 651250 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 653000 },
         ],
       },
       ...[5, 6, 7, 8].map((k) => ({
@@ -302,13 +302,13 @@ const rawDataBiayaProdi = [
         rincianC1: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 993750 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 993000 },
           { komponen: "PKKMB", nominal: 1350000 },
         ],
         rincianC2: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 993750 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 993000 },
         ],
       },
       ...[2, 3].map((k) => ({
@@ -318,12 +318,12 @@ const rawDataBiayaProdi = [
         rincianC1: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 993750 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 993000 },
         ],
         rincianC2: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 993750 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 993000 },
         ],
       })),
       {
@@ -333,13 +333,13 @@ const rawDataBiayaProdi = [
         rincianC1: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 993750 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 993000 },
           // { komponen: "PKKMB", nominal: 1350000 },
         ],
         rincianC2: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 993750 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 999000 },
         ],
       },
       ...[5, 6, 7, 8].map((k) => ({

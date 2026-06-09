@@ -514,6 +514,7 @@ function RenderLunas({ p, currentGelombang, isFKIP, cCount }) {
                         padding: "8px",
                         border: "1px solid var(--slate-200)",
                         textAlign: "right",
+                        whiteSpace: "nowrap",
                       }}
                     >
                       {vals[i + 1] ? fmt(vals[i + 1]) : "-"}
@@ -526,6 +527,7 @@ function RenderLunas({ p, currentGelombang, isFKIP, cCount }) {
                       textAlign: "right",
                       fontWeight: 800,
                       background: "var(--green-50)",
+                      whiteSpace: "nowrap",
                     }}
                   >
                     {fmt(rowTotal)}
@@ -555,6 +557,7 @@ function RenderLunas({ p, currentGelombang, isFKIP, cCount }) {
                     border: "1px solid var(--slate-200)",
                     textAlign: "right",
                     fontWeight: 700,
+                    whiteSpace: "nowrap",
                   }}
                 >
                   {semTotals[i + 1] ? fmt(semTotals[i + 1]) : "-"}
@@ -568,6 +571,7 @@ function RenderLunas({ p, currentGelombang, isFKIP, cCount }) {
                   fontWeight: 800,
                   background: "var(--gold-50)",
                   color: "var(--slate-900)",
+                  whiteSpace: "nowrap",
                 }}
               >
                 {fmt(grand)}
