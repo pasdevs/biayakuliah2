@@ -339,8 +339,8 @@ function RenderCicilan({ p, currentSemester, currentGelombang, isFKIP, cCount })
         <CicilanCard
           rincian={s.rincianC1}
           total={c1}
-          badge={isSem1 ? "Bayar Sekarang" : `Cicilan ${(s.semester - 1) * cCount + 1}`}
-          title="Cicilan 1"
+          badge={isSem1 ? "Bayar Sekarang" : (isKedokSingle ? "Pembayaran" : `Cicilan ${(s.semester - 1) * cCount + 1}`)}
+          title={isKedokSingle ? (s.semester === 2 ? "Tahap 3" : "DPP") : (p.isKedokteran ? "Tahap 1" : "Cicilan 1")}
           cls="pri"
           collapsible={false}
         />
@@ -349,7 +349,7 @@ function RenderCicilan({ p, currentSemester, currentGelombang, isFKIP, cCount })
             rincian={s.rincianC2}
             total={c2}
             badge={isSem1 ? "Bayar Nanti" : `Cicilan ${(s.semester - 1) * cCount + 2}`}
-            title="Cicilan 2"
+            title={p.isKedokteran ? "Tahap 2" : "Cicilan 2"}
             cls="sec"
             collapsible={true}
           />
@@ -389,6 +389,13 @@ function RenderLunas({ p, currentGelombang, isFKIP, cCount }) {
     : p.semesters || [];
   const maxSem = p.isKedokteran ? 7 : 8;
 
+  const normalizeKomp = (k) => {
+    if (k.startsWith("DP (")) return "DP";
+    if (k.startsWith("DPP")) return "DPP";
+    if (k.startsWith("Infak Wajib")) return "Infak Wajib";
+    return k;
+  };
+
   const kompMap = {};
   let grand = 0;
   sems
@@ -402,9 +409,10 @@ function RenderLunas({ p, currentGelombang, isFKIP, cCount }) {
       allR.forEach((r) => {
         if (r.komponen?.includes("Infak Kelipatan")) return;
         if (!r.nominal) return;
-        if (!kompMap[r.komponen]) kompMap[r.komponen] = {};
-        if (!kompMap[r.komponen][s.semester]) kompMap[r.komponen][s.semester] = 0;
-        kompMap[r.komponen][s.semester] += r.nominal;
+        const normK = normalizeKomp(r.komponen);
+        if (!kompMap[normK]) kompMap[normK] = {};
+        if (!kompMap[normK][s.semester]) kompMap[normK][s.semester] = 0;
+        kompMap[normK][s.semester] += r.nominal;
         grand += r.nominal;
       });
     });

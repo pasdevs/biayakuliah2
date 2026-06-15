@@ -1486,7 +1486,7 @@ const rawDataBiayaProdi = [
             ],
             rincianC2: [],
           },
-          ...[3, 4, 5, 6, 7, 8].map((k) => ({
+          ...[3, 4, 5, 6, 7].map((k) => ({
             semester: k,
             cicilan1: 27_600_000,
             cicilan2: "",
@@ -1526,7 +1526,7 @@ const rawDataBiayaProdi = [
             ],
             rincianC2: [],
           },
-          ...[3, 4, 5, 6, 7, 8].map((k) => ({
+          ...[3, 4, 5, 6, 7].map((k) => ({
             semester: k,
             cicilan1: 27_600_000,
             cicilan2: "",
@@ -1566,7 +1566,7 @@ const rawDataBiayaProdi = [
             ],
             rincianC2: [],
           },
-          ...[3, 4, 5, 6, 7, 8].map((k) => ({
+          ...[3, 4, 5, 6, 7].map((k) => ({
             semester: k,
             cicilan1: 27_600_000,
             cicilan2: "",
@@ -1606,7 +1606,7 @@ const rawDataBiayaProdi = [
             ],
             rincianC2: [],
           },
-          ...[3, 4, 5, 6, 7, 8].map((k) => ({
+          ...[3, 4, 5, 6, 7].map((k) => ({
             semester: k,
             cicilan1: 27_600_000,
             cicilan2: "",
