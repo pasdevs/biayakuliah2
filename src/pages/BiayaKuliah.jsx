@@ -223,9 +223,13 @@ function RenderCicilan({ p, currentSemester, currentGelombang, isFKIP, cCount })
   const s = sems.find((x) => x.semester === currentSemester) || sems[0];
   if (!s) return <p>Data tidak tersedia.</p>;
 
-  const c1 = s.cicilan1 || 0;
-  const c2 = s.cicilan2 || 0;
-  const c3 = (isFKIP ? s.cicilan3 : 0) || 0;
+  const sumRincian = (rincian) =>
+    (rincian || [])
+      .filter((r) => r.nominal && !r.komponen?.includes("Infak Kelipatan"))
+      .reduce((sum, r) => sum + Number(r.nominal), 0);
+  const c1 = sumRincian(s.rincianC1) || s.cicilan1 || 0;
+  const c2 = sumRincian(s.rincianC2) || s.cicilan2 || 0;
+  const c3 = (isFKIP ? sumRincian(s.rincianC3) : 0) || 0;
   const total = c1 + c2 + c3;
   const isSem1 = s.semester === 1;
   const hasC2 = c2 > 0 && (s.rincianC2 || []).length > 0;
@@ -391,7 +395,7 @@ function RenderLunas({ p, currentGelombang, isFKIP, cCount }) {
 
   const normalizeKomp = (k) => {
     if (k.startsWith("DP (")) return "DP";
-    if (k.startsWith("DPP")) return "DPP";
+    if (k.startsWith("DPP") && !k.startsWith("DPPS")) return "DPP";
     if (k.startsWith("Infak Wajib")) return "Infak Wajib";
     return k;
   };

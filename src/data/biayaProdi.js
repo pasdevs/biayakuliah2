@@ -153,7 +153,7 @@ const rawDataBiayaProdi = [
         ],
         rincianC2: [
           { komponen: "DP (Dana Pembangunan)", nominal: 875000 },
-          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 4000000 },
+          { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 3500000 },
           { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 666875 },
         ],
       },
