@@ -343,7 +343,7 @@ function RenderCicilan({ p, currentSemester, currentGelombang, isFKIP, cCount })
         <CicilanCard
           rincian={s.rincianC1}
           total={c1}
-          badge={isSem1 ? "Bayar Sekarang" : (isKedokSingle ? "Pembayaran" : `Cicilan ${(s.semester - 1) * cCount + 1}`)}
+          badge={isSem1 ? "Bayar Sekarang" : "Pembayaran"}
           title={isKedokSingle ? (s.semester === 2 ? "Tahap 3" : "DPP") : (p.isKedokteran ? "Tahap 1" : "Cicilan 1")}
           cls="pri"
           collapsible={false}
@@ -352,7 +352,7 @@ function RenderCicilan({ p, currentSemester, currentGelombang, isFKIP, cCount })
           <CicilanCard
             rincian={s.rincianC2}
             total={c2}
-            badge={isSem1 ? "Bayar Nanti" : `Cicilan ${(s.semester - 1) * cCount + 2}`}
+            badge={isSem1 ? "Bayar Nanti" : "Pembayaran"}
             title={p.isKedokteran ? "Tahap 2" : "Cicilan 2"}
             cls="sec"
             collapsible={true}
@@ -362,7 +362,7 @@ function RenderCicilan({ p, currentSemester, currentGelombang, isFKIP, cCount })
           <CicilanCard
             rincian={s.rincianC3}
             total={c3}
-            badge={isSem1 ? "Bayar Nanti" : `Cicilan ${(s.semester - 1) * cCount + 3}`}
+            badge={isSem1 ? "Bayar Nanti" : "Pembayaran"}
             title="Cicilan 3"
             cls="ter"
             collapsible={true}
