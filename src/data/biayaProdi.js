@@ -852,7 +852,7 @@ const rawDataBiayaProdi = [
         rincianC3: [
           { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 12500 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 12000 },
         ],
       },
       ...[2, 3, 4].map((k) => ({
@@ -873,7 +873,7 @@ const rawDataBiayaProdi = [
         rincianC3: [
           { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 12500 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 12000 },
         ],
       })),
       ...[5, 6, 7, 8].map((k) => ({
@@ -1087,12 +1087,12 @@ const rawDataBiayaProdi = [
         rincianC2: [
           { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 29500 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 29000 },
         ],
         rincianC3: [
           { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 29500 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 29000 },
         ],
       },
       ...[2, 3, 4].map((k) => ({
@@ -1108,12 +1108,12 @@ const rawDataBiayaProdi = [
         rincianC2: [
           { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 29500 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 29000 },
         ],
         rincianC3: [
           { komponen: "DP (Dana Pembangunan)", nominal: 666000 },
           { komponen: "DPP (Dana Penyelengaraan Pendidikan)", nominal: 1791000 },
-          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 29500 },
+          { komponen: "DPPS (Praktikum/Fasilitas)", nominal: 29000 },
         ],
       })),
       ...[5, 6, 7, 8].map((k) => ({
