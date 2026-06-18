@@ -1482,7 +1482,7 @@ const rawDataBiayaProdi = [
             rincianC1: [
               { komponen: "DP (25%)", nominal: 50_000_000 },
               { komponen: "Infak Kelipatan (50%)", nominal: "" },
-              { komponen: "DPP Semester 2 (100%)", nominal: 27_600_000 },
+              { komponen: "DPP", nominal: 27_600_000 },
             ],
             rincianC2: [],
           },
@@ -1522,7 +1522,7 @@ const rawDataBiayaProdi = [
             rincianC1: [
               { komponen: "DP (25%)", nominal: 50_000_000 },
               { komponen: "Infak Kelipatan (50%)", nominal: "" },
-              { komponen: "DPP Semester 2 (100%)", nominal: 27_600_000 },
+              { komponen: "DPP", nominal: 27_600_000 },
             ],
             rincianC2: [],
           },
@@ -1562,7 +1562,7 @@ const rawDataBiayaProdi = [
             rincianC1: [
               { komponen: "DP (25%)", nominal: 50_000_000 },
               { komponen: "Infak Kelipatan (50%)", nominal: "" },
-              { komponen: "DPP Semester 2 (100%)", nominal: 27_600_000 },
+              { komponen: "DPP", nominal: 27_600_000 },
             ],
             rincianC2: [],
           },
@@ -1602,7 +1602,7 @@ const rawDataBiayaProdi = [
             rincianC1: [
               { komponen: "DP (25%)", nominal: 50_000_000 },
               { komponen: "Infak Kelipatan (50%)", nominal: "" },
-              { komponen: "DPP Semester 2 (100%)", nominal: 27_600_000 },
+              { komponen: "DPP", nominal: 27_600_000 },
             ],
             rincianC2: [],
           },

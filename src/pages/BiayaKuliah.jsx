@@ -137,11 +137,10 @@ const komponenDesc = {
   "DPPS (Praktikum/Fasilitas)": "Biaya lab, peralatan & fasilitas belajar",
   PKKMB: "Orientasi mahasiswa baru (satu kali bayar)",
   DPP: "Biaya pokok perkuliahan per semester",
-  "DP (50%)": "Biaya pengembangan sarana & prasarana kampus (tahap 1)",
-  "DP (25%)": "Biaya pengembangan sarana & prasarana kampus (tahap 2)",
-  "DPP Semester 1 (50%)": "Biaya pokok perkuliahan semester 1 (tahap 1)",
-  "DPP Semester 2 (100%)": "Biaya pokok perkuliahan semester 2",
-  "Infak Wajib (50%)": "Sumbangan wajib masuk Fakultas Kedokteran",
+  "DP (50%)": "Biaya pengembangan sarana & prasarana kampus",
+  "DP (25%)": "Biaya pengembangan sarana & prasarana kampus",
+  "DPP Semester 1 (50%)": "Biaya pokok perkuliahan semester 1",
+"Infak Wajib (50%)": "Sumbangan wajib masuk Fakultas Kedokteran",
   "Infak Kelipatan (50%)": "Sumbangan sukarela (kelipatan Rp 25 juta)",
 };
 
