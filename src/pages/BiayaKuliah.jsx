@@ -112,6 +112,13 @@ const CSS = `
   .notice.gold{background:var(--gold-50);border:1px solid var(--gold-200);color:var(--gold-700)}
   .notice.green{background:var(--green-50);border:1px solid var(--green-100);color:var(--green-700)}
 
+  .dp-sep{padding:6px 0 2px;font-size:10px;font-weight:700;color:var(--gold-500);letter-spacing:.4px;text-transform:uppercase;border-top:1px dashed var(--gold-200);margin-top:4px;text-align:center}
+  .badge-fleks{padding:2px 6px;border-radius:100px;font-size:8.5px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;background:var(--gold-100);color:var(--gold-700);margin-left:6px;vertical-align:middle}
+  .fr.fleks .fl{color:var(--gold-700)}
+  .fr.fleks .fa{color:var(--gold-700);font-weight:700}
+  .dp-notice{display:flex;align-items:flex-start;gap:9px;background:var(--gold-50);border:1px solid var(--gold-200);border-radius:var(--rs);padding:11px 13px;font-size:12px;font-weight:500;color:var(--gold-700);line-height:1.5;margin-bottom:10px}
+  .dp-ic{flex-shrink:0;width:20px;height:20px;background:var(--gold-200);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;margin-top:1px}
+
   @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
   .anim{animation:fadeUp .3s ease forwards}
 
@@ -150,14 +157,21 @@ const komponenDesc = {
 function CicilanCard({ rincian, total, badge, title, cls, collapsible }) {
   const [open, setOpen] = useState(false);
 
-  const rows = (rincian || []).map((r, i) => {
+  const rows = [];
+  (rincian || []).forEach((r, i) => {
     const isInfakKelipatan = r.komponen?.includes("Infak Kelipatan");
     const nomDisplay = isInfakKelipatan ? "Kelipatan Rp 25.000.000" : fmt(r.nominal);
-    const desc = komponenDesc[r.komponen] || "";
-    return (
-      <div key={i} className="fr">
+    const desc = r.fleksibel
+      ? "Investasi fasilitas kampus — tidak harus dibayar bersamaan"
+      : (komponenDesc[r.komponen] || "");
+    if (r.fleksibel) {
+      rows.push(<div key={`sep-${i}`} className="dp-sep">dapat dibayar terpisah</div>);
+    }
+    rows.push(
+      <div key={i} className={`fr${r.fleksibel ? " fleks" : ""}`}>
         <div className="fl">
           {r.komponen}
+          {r.fleksibel && <span className="badge-fleks">FLEKSIBEL</span>}
           {desc && <small>{desc}</small>}
         </div>
         <div className="fa">{nomDisplay}</div>
@@ -368,6 +382,19 @@ function RenderCicilan({ p, currentSemester, currentGelombang, isFKIP, cCount })
           />
         )}
       </div>
+
+      {/* DP FLEKSIBEL NOTICE */}
+      {(s.rincianC1 || []).some((r) => r.fleksibel) && (
+        <div className="dp-notice">
+          <div className="dp-ic">ℹ</div>
+          <div>
+            <strong>DP (Dana Pembangunan)</strong> sebesar{" "}
+            <strong>{fmt((s.rincianC1 || []).find((r) => r.fleksibel)?.nominal)}</strong>{" "}
+            dapat dibayarkan terpisah, tidak harus bersamaan dengan Cicilan 1. Tanyakan
+            jadwal ke CS UNPAS.
+          </div>
+        </div>
+      )}
 
       {/* TOTAL BAR */}
       <div className="total-bar">
